@@ -10,5 +10,7 @@ namespace Minimundo.Domain.Entities
         public int SugestaoID { get; set; }
         public decimal Nota { get; set; }
         public string Informacao { get; set; }
+
+        public Sugestao Sugestao { get; set; }
     }
 }

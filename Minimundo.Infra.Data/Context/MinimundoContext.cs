@@ -21,7 +21,6 @@ namespace Minimundo.Infra.Data.Context
         public DbSet<Usuario> usuario { get; set; }
         public DbSet<UsuarioAcesso> usuarioAcesso { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
             if (!dbContextOptionsBuilder.IsConfigured)

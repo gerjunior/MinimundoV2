@@ -8,5 +8,7 @@ namespace Minimundo.Domain.Entities
     {
         public int AvaliadorID { get; set; }
         public int UsuarioID { get; set; }
+
+        public Usuario Usuario { get; set; }
     }
 }

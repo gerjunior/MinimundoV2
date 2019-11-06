@@ -16,5 +16,8 @@ namespace Minimundo.Domain.Entities
         public DateTime FimPeriodo { get; set; }
         public decimal ValorPremio { get; set; }
         public char Status { get; set; }
+
+        public Empresa Empresa { get; set; }
+        public Avaliador Avaliador { get; set; }
     }
 }

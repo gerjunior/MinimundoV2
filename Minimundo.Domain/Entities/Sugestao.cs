@@ -11,6 +11,9 @@ namespace Minimundo.Domain.Entities
         public int FuncionarioID { get; set; }
         public string Descricao { get; set; }
 
+        public Campanha Campanha { get; set; }
+        public Funcionario Funcionario { get; set; }
+
 
     }
 }

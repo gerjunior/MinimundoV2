@@ -8,10 +8,10 @@ namespace Minimundo.Domain.Interfaces
     public interface IRepository<T> 
     {
         T Select(int id);
-        bool Update(T obj);
-        bool Delete(int id);
-        bool Insert(T obj);
-        IList<T> SelectAll();
+        T Update(T obj);
+        T Delete(int id);
+        T Insert(T obj);
+        IEnumerable<T> SelectAll();
 
     }
 }

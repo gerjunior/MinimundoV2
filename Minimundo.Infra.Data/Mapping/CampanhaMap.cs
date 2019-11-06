@@ -10,7 +10,7 @@ namespace Minimundo.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Campanha> obj)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
