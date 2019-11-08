@@ -22,7 +22,7 @@ Dependências:
 
 ## Modelo
 
-![Modelo Utilizado](Minimundo.Sources/DER.png)
+![Modelo Utilizado](Minimundo.Sources/DERV2.png)
 
 ## Descrição
 

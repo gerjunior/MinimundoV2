@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Minimundo.Domain\Minimundo.Domain.csproj" />
+    <ProjectReference Include="..\Minimundo.Infra.CrossCutting\Minimundo.Infra.CrossCutting.csproj" />
     <ProjectReference Include="..\Minimundo.Infra.Data\Minimundo.Infra.Data.csproj" />
   </ItemGroup>
 
