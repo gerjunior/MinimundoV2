@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces.Repositories
 {
-    public interface IEmpresaRepository : IRepository<Empresa>
+    public interface IEmpresaRepository : IBaseRepository<Empresa>
     {
     }
 }

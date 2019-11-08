@@ -4,8 +4,13 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces
 {
-    public interface IService<T>
+    public interface IBaseService<T>
     {
         T Select(int id);
+        T Update(T obj);
+        T Delete(int id);
+        T Insert(T obj);
+        IEnumerable<T> SelectAll();
+
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Minimundo.Infra.Data.Repository
 {
-    public abstract class BaseRepository<T> : IRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private MinimundoContext _context;
         private readonly DbSet<T> _dbSet;
@@ -40,7 +40,7 @@ namespace Minimundo.Infra.Data.Repository
         {
             return _dbSet.Find(id);
         }
-
+ 
         public IEnumerable<T> SelectAll()
         {
             return _dbSet.ToList();

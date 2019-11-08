@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces.Repositories
 {
-    public interface ICustoSugestaoRepository : IRepository<CustoSugestao>
+    public interface ICustoSugestaoRepository : IBaseRepository<CustoSugestao>
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces.Repositories
 {
-    public interface IEnderecoRepository : IRepository<Endereco>
+    public interface IEnderecoRepository : IBaseRepository<Endereco>
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces.Services
 {
-    public interface IEnderecoService : IService<Endereco>
+    public interface IEnderecoService : IBaseService<Endereco>
     {
     }
 }

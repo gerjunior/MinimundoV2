@@ -6,7 +6,7 @@ using Minimundo.Domain.Interfaces;
 
 namespace Minimundo.Domain.Interfaces.Services
 {
-    public interface IAvaliadorService : IService<Avaliador>
+    public interface IAvaliadorService : IBaseService<Avaliador>
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces
 {
-    public interface IRepository<T> 
+    public interface IBaseRepository<T> 
     {
         T Select(int id);
         T Update(T obj);

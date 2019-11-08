@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces.Repositories
 {
-    public interface ITelefoneRepository : IRepository<Telefone>
+    public interface ITelefoneRepository : IBaseRepository<Telefone>
     {
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Minimundo.Domain.Interfaces.Services
 {
-    public interface ICustoSugestaoService : IService<CustoSugestao>
+    public interface ICustoSugestaoService : IBaseService<CustoSugestao>
     {
     }
 }
