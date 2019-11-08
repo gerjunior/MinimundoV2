@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
 using Minimundo.Service.Service;
+using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
     public class TelefoneController : Controller
     {
-        private TelefoneService _service;
+        private readonly TelefoneService _service;
         public TelefoneController()
         {
             _service = new TelefoneService();

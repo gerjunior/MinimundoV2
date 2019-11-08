@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Minimundo.Domain.Entities
+﻿namespace Minimundo.Domain.Entities
 {
     public class Telefone : BaseEntity
     {

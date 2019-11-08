@@ -1,16 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Minimundo.Domain.Interfaces;
 using Minimundo.Infra.Data.Context;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Minimundo.Infra.Data.Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private MinimundoContext _context;
+        private readonly MinimundoContext _context;
         private readonly DbSet<T> _dbSet;
         public BaseRepository()
         {

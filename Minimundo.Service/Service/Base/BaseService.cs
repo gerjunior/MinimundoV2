@@ -1,14 +1,12 @@
 ﻿using Minimundo.Domain.Interfaces;
 using Minimundo.Infra.Data.Repository;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Minimundo.Service.Service
 {
     public class BaseService<T> : IBaseService<T> where T : class
     {
-        private BaseRepository<T> _repository;
+        private readonly BaseRepository<T> _repository;
         public BaseService()
         {
             _repository = new BaseRepository<T>();

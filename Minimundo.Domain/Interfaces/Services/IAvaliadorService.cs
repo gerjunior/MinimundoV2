@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Minimundo.Domain.Entities;
-using Minimundo.Domain.Interfaces;
+﻿using Minimundo.Domain.Entities;
 
 namespace Minimundo.Domain.Interfaces.Services
 {

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Minimundo.Domain.Entities;
+using System;
 
 namespace Minimundo.Infra.Data.Mapping
 {
     public class CustoSugestaoMap
     {
-        public void Configure(EntityTypeBuilder<CustoSugestao> obj)
+        public void Configure(EntityTypeBuilder<CustoSugestao> builder)
         {
             throw new NotImplementedException();
         }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Minimundo.Domain.Entities;
+using System;
 
 namespace Minimundo.Infra.Data.Mapping
 {
     public class FuncionarioMap
     {
-        public void Configure(EntityTypeBuilder<Funcionario> obj)
+        public void Configure(EntityTypeBuilder<Funcionario> builder)
         {
             throw new NotImplementedException();
         }
