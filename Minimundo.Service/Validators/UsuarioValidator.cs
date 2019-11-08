@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using Minimundo.Domain.Entities;
 using Minimundo.Infra.CrossCutting;
-using System.Text.RegularExpressions;
 
 namespace Minimundo.Service.Validators
 {
@@ -20,7 +19,7 @@ namespace Minimundo.Service.Validators
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Senha.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Senha'.")
                 .Must(ValidatorConst.Senha).WithMessage("A senha deve conter no mínimo 8 caracteres, 1 letra minúscula, 1 letra maíuscula, 1 número e um caractere especial.")
-                .MaximumLength(100).WithMessage($"{ValidatorConst.Maximo} Senha é 100.");    
+                .MaximumLength(100).WithMessage($"{ValidatorConst.Maximo} Senha é 100.");
 
             RuleFor(c => c.Nome)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Nome.")

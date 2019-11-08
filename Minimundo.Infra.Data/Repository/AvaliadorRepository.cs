@@ -5,6 +5,5 @@ namespace Minimundo.Infra.Data.Repository
 {
     public class AvaliadorRepository : BaseRepository<Avaliador>, IAvaliadorRepository
     {
-     
     }
 }

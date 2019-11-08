@@ -33,7 +33,6 @@ namespace Minimundo.Service.Validators
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Numero.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Numero'.")
                 .Length(9).WithMessage("Numero inválido.");
-
         }
 
         public static bool TipoTelefone(char Tipo)

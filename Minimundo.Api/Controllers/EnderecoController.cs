@@ -8,11 +8,14 @@ namespace Minimundo.Api.Controllers
     public class EnderecoController : Controller
     {
         private readonly EnderecoService _service;
+
         public EnderecoController()
         {
             _service = new EnderecoService();
         }
+
         #region CRUD
+
         public IActionResult ListarTodos()
         {
             IEnumerable<Endereco> obj = _service.SelectAll();
@@ -56,6 +59,6 @@ namespace Minimundo.Api.Controllers
             return RedirectToAction("ListarTodos");
         }
 
-        #endregion
+        #endregion CRUD
     }
 }

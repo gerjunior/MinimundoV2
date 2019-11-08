@@ -7,6 +7,7 @@ namespace Minimundo.Service.Service
     public class TelefoneService : BaseService<Telefone>, ITelefoneService
     {
         private readonly TelefoneRepository _repository;
+
         public TelefoneService()
         {
             _repository = new TelefoneRepository();

@@ -7,6 +7,7 @@ namespace Minimundo.Service.Service
     public class SugestaoService : BaseService<Sugestao>, ISugestaoService
     {
         private readonly SugestaoRepository _repository;
+
         public SugestaoService()
         {
             _repository = new SugestaoRepository();

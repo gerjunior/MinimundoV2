@@ -7,10 +7,12 @@ namespace Minimundo.Service.Service
     public class BaseService<T> : IBaseService<T> where T : class
     {
         private readonly BaseRepository<T> _repository;
+
         public BaseService()
         {
             _repository = new BaseRepository<T>();
         }
+
         public T Delete(int id)
         {
             return _repository.Delete(id);

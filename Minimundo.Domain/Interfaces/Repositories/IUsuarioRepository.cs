@@ -4,6 +4,5 @@ namespace Minimundo.Domain.Interfaces.Repositories
 {
     public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
-
     }
 }

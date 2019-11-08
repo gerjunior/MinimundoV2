@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Minimundo.Infra.CrossCutting
 {
@@ -15,12 +14,14 @@ namespace Minimundo.Infra.CrossCutting
 
             return rgx.IsMatch(CNPJ);
         }
+
         public static bool CPF(string CPF)
         {
             Regex rgx = new Regex(@"[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}");
 
             return rgx.IsMatch(CPF);
         }
+
         public static bool Senha(string Senha)
         {
             Regex rgx = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");

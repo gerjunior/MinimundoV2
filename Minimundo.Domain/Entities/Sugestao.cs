@@ -9,7 +9,5 @@
 
         public Campanha Campanha { get; set; }
         public Funcionario Funcionario { get; set; }
-
-
     }
 }

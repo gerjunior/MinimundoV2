@@ -8,11 +8,14 @@ namespace Minimundo.Api.Controllers
     public class SugestaoAvaliacaoController : Controller
     {
         private readonly SugestaoAvaliacaoService _service;
+
         public SugestaoAvaliacaoController()
         {
             _service = new SugestaoAvaliacaoService();
         }
+
         #region CRUD
+
         public IActionResult ListarTodos()
         {
             IEnumerable<SugestaoAvaliacao> obj = _service.SelectAll();
@@ -56,6 +59,6 @@ namespace Minimundo.Api.Controllers
             return RedirectToAction("ListarTodos");
         }
 
-        #endregion
+        #endregion CRUD
     }
 }

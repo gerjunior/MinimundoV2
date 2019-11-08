@@ -13,7 +13,6 @@ namespace Minimundo.Service.Validators
 
             RuleFor(c => c.UsuarioID)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.");
-
         }
     }
 }

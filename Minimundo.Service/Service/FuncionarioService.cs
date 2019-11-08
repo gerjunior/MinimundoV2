@@ -7,6 +7,7 @@ namespace Minimundo.Service.Service
     public class FuncionarioService : BaseService<Funcionario>, IFuncionarioService
     {
         private readonly FuncionarioRepository _repository;
+
         public FuncionarioService()
         {
             _repository = new FuncionarioRepository();

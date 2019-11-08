@@ -10,11 +10,13 @@ namespace Minimundo.Infra.Data.Repository
     {
         private readonly MinimundoContext _context;
         private readonly DbSet<T> _dbSet;
+
         public BaseRepository()
         {
             _context = new MinimundoContext();
             _dbSet = _context.Set<T>();
         }
+
         public T Delete(int id)
         {
             T obj = Select(id);
@@ -38,7 +40,7 @@ namespace Minimundo.Infra.Data.Repository
         {
             return _dbSet.Find(id);
         }
- 
+
         public IEnumerable<T> SelectAll()
         {
             return _dbSet.ToList();
