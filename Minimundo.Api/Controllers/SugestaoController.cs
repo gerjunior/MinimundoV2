@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
-using Minimundo.Service.Service;
+using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
     public class SugestaoController : Controller
     {
-        private readonly SugestaoService _service;
+        private readonly ISugestaoService _service;
 
-        public SugestaoController()
+        public SugestaoController(ISugestaoService service)
         {
-            _service = new SugestaoService();
+            _service = service;
         }
 
         #region CRUD

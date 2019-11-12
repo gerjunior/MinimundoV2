@@ -15,15 +15,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 Data", "4.1 Data", "{0D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 CrossCutting", "4.2 CrossCutting", "{E969EE3E-4CAE-442F-8BFF-B8D626DDE04C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Api", "Minimundo.Api\Minimundo.Api.csproj", "{8F065485-70B3-4C4B-8358-4CAF194F50D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Api", "Minimundo.Api\Minimundo.Api.csproj", "{8F065485-70B3-4C4B-8358-4CAF194F50D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Domain", "Minimundo.Domain\Minimundo.Domain.csproj", "{AC5306F8-45AA-4618-A0A2-69994C687D0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Domain", "Minimundo.Domain\Minimundo.Domain.csproj", "{AC5306F8-45AA-4618-A0A2-69994C687D0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Service", "Minimundo.Service\Minimundo.Service.csproj", "{C9C977E6-8C68-4F91-8205-FD2FB7B15198}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Service", "Minimundo.Service\Minimundo.Service.csproj", "{C9C977E6-8C68-4F91-8205-FD2FB7B15198}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Infra.Data", "Minimundo.Infra.Data\Minimundo.Infra.Data.csproj", "{85126021-A835-410E-A0A3-7D818757AC68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Infra.Data", "Minimundo.Infra.Data\Minimundo.Infra.Data.csproj", "{85126021-A835-410E-A0A3-7D818757AC68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Infra.CrossCutting", "Minimundo.Infra.CrossCutting\Minimundo.Infra.CrossCutting.csproj", "{A9F03890-4648-4383-B4DC-8E0768934F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Infra.CrossCutting", "Minimundo.Infra.CrossCutting\Minimundo.Infra.CrossCutting.csproj", "{A9F03890-4648-4383-B4DC-8E0768934F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Domain.Tests", "Minimundo.Domain.Tests\Minimundo.Domain.Tests.csproj", "{4016799F-25AB-46A9-9EA4-545C92E60E48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Service.Tests", "Minimundo.Service.Tests\Minimundo.Service.Tests.csproj", "{4695E7DD-15F7-4EEA-9D42-5D0946A1BF59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Api.Tests", "Minimundo.Api.Tests\Minimundo.Api.Tests.csproj", "{C8112474-AB1D-4368-A5D3-C1484450F781}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,18 @@ Global
 		{A9F03890-4648-4383-B4DC-8E0768934F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9F03890-4648-4383-B4DC-8E0768934F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9F03890-4648-4383-B4DC-8E0768934F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4016799F-25AB-46A9-9EA4-545C92E60E48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4016799F-25AB-46A9-9EA4-545C92E60E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4016799F-25AB-46A9-9EA4-545C92E60E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4016799F-25AB-46A9-9EA4-545C92E60E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4695E7DD-15F7-4EEA-9D42-5D0946A1BF59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4695E7DD-15F7-4EEA-9D42-5D0946A1BF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4695E7DD-15F7-4EEA-9D42-5D0946A1BF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4695E7DD-15F7-4EEA-9D42-5D0946A1BF59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8112474-AB1D-4368-A5D3-C1484450F781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8112474-AB1D-4368-A5D3-C1484450F781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8112474-AB1D-4368-A5D3-C1484450F781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8112474-AB1D-4368-A5D3-C1484450F781}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +81,9 @@ Global
 		{C9C977E6-8C68-4F91-8205-FD2FB7B15198} = {696B5657-9D91-4266-B847-2664F16FA435}
 		{85126021-A835-410E-A0A3-7D818757AC68} = {0DBF7216-3BF6-4BDA-B579-7752228BFF9C}
 		{A9F03890-4648-4383-B4DC-8E0768934F40} = {E969EE3E-4CAE-442F-8BFF-B8D626DDE04C}
+		{4016799F-25AB-46A9-9EA4-545C92E60E48} = {FB5EF999-BF05-4E64-8356-F5DDC46E61C9}
+		{4695E7DD-15F7-4EEA-9D42-5D0946A1BF59} = {696B5657-9D91-4266-B847-2664F16FA435}
+		{C8112474-AB1D-4368-A5D3-C1484450F781} = {CA227084-3591-4CED-A4A6-9D45FCED0D7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C41729D4-0C46-4432-BC14-193269A40316}

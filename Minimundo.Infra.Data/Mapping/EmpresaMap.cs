@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Minimundo.Domain.Entities;
-using System;
 
 namespace Minimundo.Infra.Data.Mapping
 {
@@ -32,7 +31,7 @@ namespace Minimundo.Infra.Data.Mapping
 
             builder.Property(p => p.RazaoSocial)
                    .HasColumnName(@"RazaoSocial")
-                   .HasColumnType("varcahr")
+                   .HasColumnType("varchar")
                    .HasMaxLength(100)
                    .IsRequired();
 
@@ -60,7 +59,7 @@ namespace Minimundo.Infra.Data.Mapping
 
             builder.Property(p => p.Ativo)
                    .HasColumnName(@"Ativo")
-                   .HasColumnType("boolean")
+                   .HasColumnType("bit")
                    .IsRequired();
 
         }

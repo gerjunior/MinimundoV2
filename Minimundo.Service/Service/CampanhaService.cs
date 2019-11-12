@@ -1,16 +1,16 @@
 ﻿using Minimundo.Domain.Entities;
+using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
-using Minimundo.Infra.Data.Repository;
 
 namespace Minimundo.Service.Service
 {
     public class CampanhaService : BaseService<Campanha>, ICampanhaService
     {
-        private readonly CampanhaRepository _repository;
+        private readonly ICampanhaRepository _repository;
 
-        public CampanhaService()
+        public CampanhaService(ICampanhaRepository repository)
         {
-            _repository = new CampanhaRepository();
+            _repository = repository;
         }
     }
 }

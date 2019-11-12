@@ -1,16 +1,16 @@
 ﻿using Minimundo.Domain.Entities;
+using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
-using Minimundo.Infra.Data.Repository;
 
 namespace Minimundo.Service.Service
 {
     public class EnderecoService : BaseService<Endereco>, IEnderecoService
     {
-        private readonly EnderecoRepository _repository;
+        private readonly IEnderecoRepository _repository;
 
-        public EnderecoService()
+        public EnderecoService(IEnderecoRepository repository)
         {
-            _repository = new EnderecoRepository();
+            _repository = repository;
         }
     }
 }

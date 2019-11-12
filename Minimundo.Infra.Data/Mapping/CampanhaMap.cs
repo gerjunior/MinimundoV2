@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Minimundo.Domain.Entities;
-using System;
 
 namespace Minimundo.Infra.Data.Mapping
 {
@@ -48,12 +47,12 @@ namespace Minimundo.Infra.Data.Mapping
 
             builder.Property(p => p.InicioPeriodo)
                    .HasColumnName(@"InicioPeriodo")
-                   .HasColumnType("datetime")
+                   .HasColumnType("date")
                    .IsRequired();
 
             builder.Property(p => p.FimPeriodo)
                    .HasColumnName(@"FimPeriodo")
-                   .HasColumnType("datetime")
+                   .HasColumnType("date")
                    .IsRequired();
 
             builder.Property(p => p.CriadoPor)
@@ -80,9 +79,8 @@ namespace Minimundo.Infra.Data.Mapping
 
             builder.Property(p => p.Ativo)
                    .HasColumnName(@"Ativo")
-                   .HasColumnType("boolean")
+                   .HasColumnType("bit")
                    .IsRequired();
         }
-    }
     }
 }

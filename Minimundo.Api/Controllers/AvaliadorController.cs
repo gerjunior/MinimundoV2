@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
-using Minimundo.Service.Service;
+using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
     public class AvaliadorController : Controller
     {
-        private readonly AvaliadorService _service;
+        private readonly IAvaliadorService _service;
 
-        public AvaliadorController()
+        public AvaliadorController(IAvaliadorService service)
         {
-            _service = new AvaliadorService();
+            _service = service;
         }
 
         #region CRUD

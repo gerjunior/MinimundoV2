@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
-using Minimundo.Service.Service;
+using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly UsuarioService _service;
+        private readonly IUsuarioService _service;
 
-        public UsuarioController()
+        public UsuarioController(IUsuarioService service)
         {
-            _service = new UsuarioService();
+            _service = service;
         }
 
         #region CRUD

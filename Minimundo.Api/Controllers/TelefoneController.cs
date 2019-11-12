@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
-using Minimundo.Service.Service;
+using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
     public class TelefoneController : Controller
     {
-        private readonly TelefoneService _service;
+        private readonly ITelefoneService _service;
 
-        public TelefoneController()
+        public TelefoneController(ITelefoneService service)
         {
-            _service = new TelefoneService();
+            _service = service;
         }
 
         #region CRUD

@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
-using Minimundo.Service.Service;
+using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
     public class EnderecoController : Controller
     {
-        private readonly EnderecoService _service;
+        private readonly IEnderecoService _service;
 
-        public EnderecoController()
+        public EnderecoController(IEnderecoService service)
         {
-            _service = new EnderecoService();
+            _service = service;
         }
 
         #region CRUD

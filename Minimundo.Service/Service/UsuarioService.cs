@@ -1,16 +1,16 @@
 ﻿using Minimundo.Domain.Entities;
+using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
-using Minimundo.Infra.Data.Repository;
 
 namespace Minimundo.Service.Service
 {
     public class UsuarioService : BaseService<Usuario>, IUsuarioService
     {
-        private readonly UsuarioRepository _repository;
+        private readonly IUsuarioRepository _repository;
 
-        public UsuarioService()
+        public UsuarioService(IUsuarioRepository repository)
         {
-            _repository = new UsuarioRepository();
+            _repository = repository;
         }
     }
 }
