@@ -23,14 +23,9 @@ namespace Minimundo.Infra.Data.Mapping
                    .HasColumnType("int")
                    .IsRequired();
 
-            builder.Property(p => p.SugestaoID)
-                   .HasColumnName("SugestaoID")
-                   .HasColumnType("int")
-                   .IsRequired();
-
             builder.Property(p => p.Nota)
                    .HasColumnName("Nota")
-                   .HasColumnType("decimal")
+                   .HasColumnType("decimal(14,4)")
                    .IsRequired();
 
             builder.Property(p => p.Informacao)
