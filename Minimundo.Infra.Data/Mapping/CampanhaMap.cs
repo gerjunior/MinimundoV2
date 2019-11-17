@@ -29,7 +29,7 @@ namespace Minimundo.Infra.Data.Mapping
 
             builder.Property(p => p.Responsavel)
                    .HasColumnName(@"Responsavel")
-                   .HasColumnType("varcahr")
+                   .HasColumnType("varchar")
                    .HasMaxLength(100)
                    .IsRequired();
 
@@ -55,31 +55,15 @@ namespace Minimundo.Infra.Data.Mapping
                    .HasColumnType("date")
                    .IsRequired();
 
-            builder.Property(p => p.CriadoPor)
-                   .HasColumnName(@"CriadoPor")
-                   .HasColumnType("varchar")
-                   .HasMaxLength(255)
+            builder.Property(p => p.ValorPremio)
+                   .HasColumnName(@"ValorPremio")
+                   .HasColumnType("decimal(18,4)")
                    .IsRequired();
 
-            builder.Property(p => p.CriadoEm)
-                   .HasColumnName(@"CriadoEm")
-                   .HasColumnType("date")
-                   .IsRequired();
-
-            builder.Property(p => p.ModificadoPor)
-                   .HasColumnName(@"ModificadoPor")
-                   .HasColumnType("varchar")
-                   .HasMaxLength(255)
-                   .IsRequired();
-
-            builder.Property(p => p.ModificadoEm)
-                   .HasColumnName(@"ModificadoEm")
-                   .HasColumnType("date")
-                   .IsRequired();
-
-            builder.Property(p => p.Ativo)
-                   .HasColumnName(@"Ativo")
-                   .HasColumnType("bit")
+            builder.Property(p => p.Status)
+                   .HasColumnName(@"Status")
+                   .HasColumnType("char")
+                   .HasMaxLength(1)
                    .IsRequired();
         }
     }

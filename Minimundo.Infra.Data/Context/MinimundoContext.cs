@@ -6,6 +6,10 @@ namespace Minimundo.Infra.Data.Context
 {
     public class MinimundoContext : DbContext
     {
+        public MinimundoContext()
+        {
+
+        }
         public DbSet<Campanha> Campanha { get; set; }
         public DbSet<Avaliador> Avaliador { get; set; }
         public DbSet<CustoSugestao> CustoSugestao { get; set; }
@@ -16,12 +20,14 @@ namespace Minimundo.Infra.Data.Context
         public DbSet<SugestaoAvaliacao> SugestaoAvaliacao { get; set; }
         public DbSet<Telefone> Telefone { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<UsuarioAcesso> UsuarioAcesso { get; set; }
+        //public DbSet<UserToken> UsuarioAcesso { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
+            {
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q7KUIDL;Initial Catalog=MINIMUNDO;Integrated Security=True");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,7 +43,7 @@ namespace Minimundo.Infra.Data.Context
             modelBuilder.Entity<Sugestao>(new SugestaoMap().Configure);
             modelBuilder.Entity<Telefone>(new TelefoneMap().Configure);
             modelBuilder.Entity<Usuario>(new UsuarioMap().Configure);
-            modelBuilder.Entity<UsuarioAcesso>(new UsuarioAcessoMap().Configure);
+            //modelBuilder.Entity<UserToken>(new UsuarioAcessoMap().Configure);
         }
     }
 }

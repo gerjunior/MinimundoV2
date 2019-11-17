@@ -63,33 +63,6 @@ namespace Minimundo.Infra.Data.Mapping
                    .HasColumnType("varchar")
                    .HasMaxLength(100)
                    .IsRequired();
-
-            builder.Property(p => p.CriadoPor)
-                  .HasColumnName(@"CriadoPor")
-                  .HasColumnType("varchar")
-                  .HasMaxLength(255)
-                  .IsRequired();
-
-            builder.Property(p => p.CriadoEm)
-                   .HasColumnName(@"CriadoEm")
-                   .HasColumnType("date")
-                   .IsRequired();
-
-            builder.Property(p => p.ModificadoPor)
-                   .HasColumnName("ModificadoPor")
-                   .HasColumnType("varchar")
-                   .HasMaxLength(255)
-                   .IsRequired();
-
-            builder.Property(p => p.ModificadoEm)
-                   .HasColumnName(@"ModificadoEm")
-                   .HasColumnType("date")
-                   .IsRequired();
-
-            builder.Property(p => p.Ativo)
-                   .HasColumnName(@"Ativo")
-                   .HasColumnType("bit")
-                   .IsRequired();
         }
     }
 }
