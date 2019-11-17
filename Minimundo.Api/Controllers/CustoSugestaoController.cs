@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 namespace Minimundo.Api.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class CustoSugestaoController : Controller
     {
         private readonly ICustoSugestaoService _service;
@@ -16,47 +18,41 @@ namespace Minimundo.Api.Controllers
 
         #region CRUD
 
+        [Route("ListarTodos")]
         public IActionResult ListarTodos()
         {
             IEnumerable<CustoSugestao> obj = _service.SelectAll();
-            return View(obj);
+            return Json(obj);
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
         public IActionResult Mostrar(int id)
         {
             CustoSugestao obj = _service.Select(id);
-            return View(obj);
-        }
-
-        public IActionResult Inserir()
-        {
-            return View();
+            return Json(obj);
         }
 
         [HttpPost]
         public IActionResult Inserir(CustoSugestao obj)
         {
             _service.Insert(obj);
-            return RedirectToAction("ListarTodos");
-        }
-
-        public IActionResult Atualizar()
-        {
-            return View();
+            return Json(obj);
         }
 
         [HttpPut]
         public IActionResult Atualizar(CustoSugestao obj)
         {
             _service.Update(obj);
-            return RedirectToAction("ListarTodos");
+            return Json(obj);
         }
 
         [HttpDelete]
+        [Route("{id:int}")]
         public IActionResult Deletar(int id)
         {
-            _service.Delete(id);
-            return RedirectToAction("ListarTodos");
+            var obj = _service.Delete(id);
+            return Json(obj);
         }
 
         #endregion CRUD

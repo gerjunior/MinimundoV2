@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Minimundo.Domain.Entities;
-using Minimundo.Domain.Entities.Authentication;
 using Minimundo.Infra.Data.Mapping;
 
 namespace Minimundo.Infra.Data.Context
 {
     public class MinimundoContext : DbContext
     {
-        public MinimundoContext(DbContextOptions<MinimundoContext> options) : base(options)
+        public MinimundoContext()
         {
 
         }
@@ -21,12 +20,14 @@ namespace Minimundo.Infra.Data.Context
         public DbSet<SugestaoAvaliacao> SugestaoAvaliacao { get; set; }
         public DbSet<Telefone> Telefone { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<UserToken> UsuarioAcesso { get; set; }
+        //public DbSet<UserToken> UsuarioAcesso { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
+            {
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-Q7KUIDL;Initial Catalog=MINIMUNDO;Integrated Security=True");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

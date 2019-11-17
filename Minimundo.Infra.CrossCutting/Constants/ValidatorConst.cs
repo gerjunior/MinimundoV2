@@ -10,7 +10,7 @@ namespace Minimundo.Infra.CrossCutting
 
         public static bool CNPJ(string CNPJ)
         {
-            Regex rgx = new Regex(@"[0 - 9]{ 2}\.?[0-9]{3}\.?[0 - 9]{3}\/?[0 - 9]{4}\-?[0 - 9]{2}");
+            Regex rgx = new Regex(@"[0 - 9]{ 2}\.?[0-9]{3}\?[0 - 9]{3}\/?[0 - 9]{4}\-?[0 - 9]{2}");
 
             return rgx.IsMatch(CNPJ);
         }

@@ -22,7 +22,9 @@ namespace Minimundo.Infra.Data.Repository
             T obj = Select(id);
 
             if (obj == null)
+            {
                 return null;
+            }
 
             _dbSet.Remove(obj);
             _context.SaveChanges();
