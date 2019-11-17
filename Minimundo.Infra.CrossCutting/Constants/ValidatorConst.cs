@@ -10,11 +10,6 @@ namespace Minimundo.Infra.CrossCutting
 
         public static bool CNPJ(string cnpj)
         {
-            Regex rgx = new Regex(@"[0 - 9]{ 2}\.?[0-9]{3}\?[0 - 9]{3}\/?[0 - 9]{4}\-?[0 - 9]{2}");
-
-            if (!rgx.IsMatch(cnpj))
-                return false;
-
             int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
             int soma;
@@ -50,11 +45,6 @@ namespace Minimundo.Infra.CrossCutting
 
         public static bool CPF(string CPF)
         {
-            Regex rgx = new Regex(@"[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}");
-
-            if (!rgx.IsMatch(CPF))
-                return false;
-
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             string tempCpf;

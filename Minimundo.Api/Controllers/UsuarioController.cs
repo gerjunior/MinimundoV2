@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
 using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Minimundo.Api.Controllers
 {
@@ -9,17 +11,39 @@ namespace Minimundo.Api.Controllers
     [ApiController]
     public class UsuarioController : Controller
     {
-        //private readonly UserManager<ApplicationUser> _userManager;
-        //private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IUsuarioService _service;
         //private readonly IConfiguration _configuration;
 
-        public UsuarioController(IUsuarioService service)
+        public UsuarioController(IUsuarioService service,
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             _service = service;
-            //_userManager = userManager;
-            //_signInManager = signInManager;
+            _userManager = userManager;
+            _signInManager = signInManager;
             //_configuration = configuration;
+        }
+
+        [HttpPost]
+        [Route("NovaConta")]
+        public async Task<IActionResult> Registrar(Usuario usuario)
+        {
+            var user = new IdentityUser
+            {
+                UserName = usuario.Email,
+                Email = usuario.Email,
+                EmailConfirmed = true
+            };
+
+            var result = await _userManager.CreateAsync(user, usuario.Senha);
+
+            if (!result.Succeeded) return BadRequest(result.Errors);
+
+            await _signInManager.SignInAsync(user, false);
+
+            return Ok();
         }
 
         //[HttpPost("Criar")]

@@ -6,7 +6,7 @@ namespace Minimundo.Infra.Data.Context
 {
     public class MinimundoContext : DbContext
     {
-        public MinimundoContext()
+        public MinimundoContext(DbContextOptions<MinimundoContext> options) : base(options)
         {
 
         }

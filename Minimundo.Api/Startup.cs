@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ using Minimundo.Domain.Entities;
 using Minimundo.Domain.Interfaces;
 using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
+using Minimundo.Infra.Data.Context;
 using Minimundo.Infra.Data.Repository;
 using Minimundo.Service.Service;
 using Minimundo.Service.Validators;
@@ -32,19 +34,21 @@ namespace Minimundo.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-         options.TokenValidationParameters = new TokenValidationParameters
-         {
-             ValidateIssuer = false,
-             ValidateAudience = false,
-             ValidateLifetime = true,
-             ValidateIssuerSigningKey = true,
-             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwt:key"])),
-             ClockSkew = TimeSpan.Zero
-         });
+         //   services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+         //options.TokenValidationParameters = new TokenValidationParameters
+         //{
+         //    ValidateIssuer = false,
+         //    ValidateAudience = false,
+         //    ValidateLifetime = true,
+         //    ValidateIssuerSigningKey = true,
+         //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwt:key"])),
+         //    ClockSkew = TimeSpan.Zero
+         //});
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest)
                  .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
+
+            
 
             #region Validators
             services.AddSingleton<IValidator<Avaliador>, AvaliadorValidator>();
@@ -106,6 +110,7 @@ namespace Minimundo.Api
 
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
