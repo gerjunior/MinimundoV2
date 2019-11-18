@@ -52,7 +52,7 @@ namespace Minimundo.Service.Validators
 
         public static bool CEP(string CEP)
         {
-            Regex Rgx = new Regex(@"^\d{5}-\d{3}$");
+            var Rgx = new Regex(@"^(\d{5}-\d{3}$)|(\d{8})");
 
             return Rgx.IsMatch(CEP);
         }
