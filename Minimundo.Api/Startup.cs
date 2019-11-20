@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Minimundo.Domain.Entities;
+using Minimundo.Domain.Entities.Authentication;
 using Minimundo.Domain.Interfaces;
 using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
@@ -45,10 +47,17 @@ namespace Minimundo.Api
          //    ClockSkew = TimeSpan.Zero
          //});
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest)
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                  .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
 
-            
+            var signingConfigurations = new SigningConfigurations();
+            services.AddSingleton(signingConfigurations);
+
+            var tokenConfigurations = new TokenConfigurations();
+            new ConfigureFromConfigurationOptions<TokenConfigurations>(
+                Configuration.GetSection("TokenConfigurations"))
+                    .Configure(tokenConfigurations);
+            services.AddSingleton(tokenConfigurations);
 
             #region Validators
             services.AddSingleton<IValidator<Avaliador>, AvaliadorValidator>();
