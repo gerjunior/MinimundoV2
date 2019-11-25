@@ -10,13 +10,16 @@ namespace Minimundo.Service.Validators
         public CampanhaValidator()
         {
             RuleFor(c => c.CampanhaID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} CampanhaID.");
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} CampanhaID.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} CampanhaID.");
 
             RuleFor(c => c.EmpresaID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} EmpresaID.");
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} EmpresaID.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} EmpresaID.");
 
             RuleFor(c => c.AvaliadorID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} AvaliadorID.");
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} AvaliadorID.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} AvaliadorID.");
 
             RuleFor(c => c.Responsavel)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Responsavel.")
@@ -36,18 +39,15 @@ namespace Minimundo.Service.Validators
             RuleFor(c => c.InicioPeriodo)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} InicioPeríodo.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Início do Período'.")
-                .GreaterThanOrEqualTo(DateTime.Now).WithMessage($"A Data de Início do período não pode ser inferior à data de hoje.")
                 .LessThanOrEqualTo(f => f.FimPeriodo).WithMessage($"A Data de Início do período não pode ser maior que à data de Fim do Período.");
 
             RuleFor(c => c.FimPeriodo)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} FimPeriodo.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} Fim do Período.")
-                .GreaterThanOrEqualTo(DateTime.Now).WithMessage($"A data de fim do período não pode ser inferior à data de hoje.")
                 .GreaterThanOrEqualTo(f => f.InicioPeriodo).WithMessage($"A data de Fim do Período não pode ser menor que a data de Início do Período.");
 
             RuleFor(c => c.ValorPremio)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} ValorPremio.")
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} Valor do Prêmio.")
                 .GreaterThanOrEqualTo(0).WithMessage($"O Valor do Prêmio não pode ser menor que 0.");
 
             RuleFor(c => c.Status)

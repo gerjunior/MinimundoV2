@@ -10,16 +10,17 @@ namespace Minimundo.Service.Validators
         public EnderecoValidator()
         {
             RuleFor(c => c.EnderecoID)
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'EnderecoID'.")
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} EnderecoID.");
 
             RuleFor(c => c.UsuarioID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.");
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'UsuarioID'.");
 
             RuleFor(c => c.CEP)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} CEP.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'CEP'.")
-                .Must(CEP).WithMessage($"CEP inválido.")
-                .Length(8).WithMessage($"O CEP possui 8 caracteres somente.");
+                .Must(CEP).WithMessage($"CEP inválido.");
 
             RuleFor(c => c.Estado)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Estado.")
@@ -52,6 +53,9 @@ namespace Minimundo.Service.Validators
 
         public static bool CEP(string CEP)
         {
+            if (string.IsNullOrWhiteSpace(CEP))
+                return false;
+
             var Rgx = new Regex(@"^(\d{5}-\d{3}$)|(\d{8})");
 
             return Rgx.IsMatch(CEP);

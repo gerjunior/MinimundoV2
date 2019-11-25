@@ -9,10 +9,13 @@ namespace Minimundo.Service.Validators
         public CustoSugestaoValidator()
         {
             RuleFor(c => c.CustoSugestaoID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} CustoSugestaoID.");
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} CustoSugestaoID.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} CustoSugestaoID.");
+
 
             RuleFor(c => c.SugestaoID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} SugestaoID.");
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} SugestaoID.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} SugestaoID.");
 
             RuleFor(c => c.DescricaoCusto)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} DescricaoCusto.")
@@ -21,7 +24,6 @@ namespace Minimundo.Service.Validators
 
             RuleFor(c => c.Valor)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Valor.")
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Valor de Custo'.")
                 .GreaterThanOrEqualTo(0).WithMessage("O valor de custo não pode ser inferior a 0.");
         }
     }
