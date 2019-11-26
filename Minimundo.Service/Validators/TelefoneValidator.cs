@@ -9,9 +9,11 @@ namespace Minimundo.Service.Validators
         public TelefoneValidator()
         {
             RuleFor(c => c.TelefoneID)
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} TelefoneID.")
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} TelefoneID.");
 
             RuleFor(c => c.UsuarioID)
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} UsuarioID.")
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.");
 
             RuleFor(c => c.Tipo)

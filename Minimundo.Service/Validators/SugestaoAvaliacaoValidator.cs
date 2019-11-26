@@ -9,14 +9,16 @@ namespace Minimundo.Service.Validators
         public SugestaoAvaliacaoValidator()
         {
             RuleFor(c => c.SugestaoAvaliacaoID)
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} SugestaoAvaliacaoID")
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} SugestaoAvaliacaoID.");
 
             RuleFor(c => c.SugestaoID)
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} SugestaoID")
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} SugestaoID.");
 
             RuleFor(c => c.Nota)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Nota.")
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} Nota.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} Nota")
                 .GreaterThanOrEqualTo(0).WithMessage($"A nota não pode ser inferior a 0.")
                 .LessThanOrEqualTo(10).WithMessage($"A nota não pode ser superior a 10.");
 
