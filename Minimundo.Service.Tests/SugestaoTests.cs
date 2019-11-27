@@ -146,6 +146,42 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void DescricaoEspacoBranco()
+        {
+            SugestaoValidator validator = new SugestaoValidator();
+
+            Sugestao sugestao = new Sugestao
+            {
+                SugestaoID = 1,
+                CampanhaID = 1,
+                FuncionarioID = 1,
+                Descricao = " "
+            };
+
+            var response = validator.Validate(sugestao);
+
+            Assert.AreEqual(false, response.IsValid);
+        }
+
+        [TestMethod]
+        public void DescricaoEspacoBranco10Caracteres()
+        {
+            SugestaoValidator validator = new SugestaoValidator();
+
+            Sugestao sugestao = new Sugestao
+            {
+                SugestaoID = 1,
+                CampanhaID = 1,
+                FuncionarioID = 1,
+                Descricao = "           "
+            };
+
+            var response = validator.Validate(sugestao);
+
+            Assert.AreEqual(false, response.IsValid);
+        }
+
+        [TestMethod]
         public void DescricaoDezCaracteres()
         {
             SugestaoValidator validator = new SugestaoValidator();

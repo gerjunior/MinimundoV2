@@ -216,6 +216,26 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void DDIEspacoBranco()
+        {
+            TelefoneValidator validator = new TelefoneValidator();
+
+            Telefone telefone = new Telefone
+            {
+                TelefoneID = 1,
+                UsuarioID = 1,
+                Tipo = 'C',
+                DDD = "37",
+                DDI = " ",
+                Numero = "991785049"
+            };
+
+            var response = validator.Validate(telefone);
+
+            Assert.AreEqual(false, response.IsValid);
+        }
+
+        [TestMethod]
         public void DDILimiteCaracteres()
         {
             TelefoneValidator validator = new TelefoneValidator();
@@ -270,6 +290,26 @@ namespace Minimundo.Service.Tests
                 UsuarioID = 1,
                 Tipo = 'P',
                 DDD = "",
+                DDI = "55",
+                Numero = "991785049"
+            };
+
+            var response = validator.Validate(telefone);
+
+            Assert.AreEqual(false, response.IsValid);
+        }
+
+        [TestMethod]
+        public void DDDEspacoBranco()
+        {
+            TelefoneValidator validator = new TelefoneValidator();
+
+            Telefone telefone = new Telefone
+            {
+                TelefoneID = 1,
+                UsuarioID = 1,
+                Tipo = 'C',
+                DDD = " ",
                 DDI = "55",
                 Numero = "991785049"
             };
@@ -335,6 +375,26 @@ namespace Minimundo.Service.Tests
                 DDD = "37",
                 DDI = "55",
                 Numero = ""
+            };
+
+            var response = validator.Validate(telefone);
+
+            Assert.AreEqual(false, response.IsValid);
+        }
+
+        [TestMethod]
+        public void NumeroEspacoBranco()
+        {
+            TelefoneValidator validator = new TelefoneValidator();
+
+            Telefone telefone = new Telefone
+            {
+                TelefoneID = 1,
+                UsuarioID = 1,
+                Tipo = 'C',
+                DDD = "37",
+                DDI = "55",
+                Numero = " "
             };
 
             var response = validator.Validate(telefone);

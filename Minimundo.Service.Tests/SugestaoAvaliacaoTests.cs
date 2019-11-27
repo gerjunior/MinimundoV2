@@ -107,24 +107,6 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
-        public void NotaIgualAZero()
-        {
-            SugestaoAvaliacaoValidator validator = new SugestaoAvaliacaoValidator();
-
-            SugestaoAvaliacao sugestaoAvaliacao = new SugestaoAvaliacao
-            {
-                SugestaoAvaliacaoID = 1,
-                SugestaoID = 1,
-                Nota = 0,
-                Informacao = "Não tem"
-            };
-
-            var response = validator.Validate(sugestaoAvaliacao);
-
-            Assert.AreEqual(true, response.IsValid);
-        }
-
-        [TestMethod]
         public void NotaIgualADez()
         {
             SugestaoAvaliacaoValidator validator = new SugestaoAvaliacaoValidator();
@@ -218,6 +200,24 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void InformacaoEspacoEmBranco()
+        {
+            SugestaoAvaliacaoValidator validator = new SugestaoAvaliacaoValidator();
+
+            SugestaoAvaliacao sugestaoAvaliacao = new SugestaoAvaliacao
+            {
+                SugestaoAvaliacaoID = 1,
+                SugestaoID = 1,
+                Nota = 10,
+                Informacao = " "
+            };
+
+            var response = validator.Validate(sugestaoAvaliacao);
+
+            Assert.AreEqual(true, response.IsValid);
+        }
+
+        [TestMethod]
         public void InformacaoMaiorQueLimiteDeCaracteres()
         {
             SugestaoAvaliacaoValidator validator = new SugestaoAvaliacaoValidator();
@@ -235,7 +235,6 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, response.IsValid);
         }
         #endregion
-
 
     }
 }

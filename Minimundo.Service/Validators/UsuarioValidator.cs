@@ -9,10 +9,13 @@ namespace Minimundo.Service.Validators
         public UsuarioValidator()
         {
             RuleFor(c => c.UsuarioID)
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'UsuarioID'.")
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.");
 
             RuleFor(c => c.Email)
                 .EmailAddress().WithMessage($"Email inválido.")
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Email'.")
+                .NotNull().WithMessage($"{ValidatorConst.Nulo} Email.")
                 .MaximumLength(255).WithMessage($"{ValidatorConst.Maximo} Email é 255.");
 
             RuleFor(c => c.Senha)
@@ -33,7 +36,13 @@ namespace Minimundo.Service.Validators
 
             RuleFor(c => c.Sexo)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} Sexo.")
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Sexo'.");
+                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Sexo'.")
+                .Must(SexoTipo).WithMessage("Informe: Masculino, Feminino ou Outro.");
+        }
+
+        public static bool SexoTipo(char sexo)
+        {
+            return (sexo == 'M' || sexo == 'F' || sexo == 'O');
         }
     }
 }

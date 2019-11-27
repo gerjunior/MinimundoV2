@@ -11,6 +11,30 @@ namespace Minimundo.Service.Tests
         #region Geral
 
         [TestMethod]
+        public void ObjetoValido()
+        {
+            CampanhaValidator validator = new CampanhaValidator();
+
+            Campanha campanha = new Campanha
+            {
+                CampanhaID = 1,
+                AvaliadorID = 1,
+                EmpresaID = 1,
+                Descricao = "Teste",
+                InicioPeriodo = Convert.ToDateTime("26/11/2019"),
+                FimPeriodo = Convert.ToDateTime("27/11/2019"),
+                Nome = "Campanha",
+                Responsavel = "Teste",
+                ValorPremio = 1,
+                Status = 'A'
+            };
+
+            var resultado = validator.Validate(campanha);
+
+            Assert.AreEqual(true, resultado.IsValid);
+        }
+
+        [TestMethod]
         public void ObjetoNulo()
         {
             CampanhaValidator validator = new CampanhaValidator();
@@ -152,6 +176,30 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void ResponsavelEspacoEmBranco()
+        {
+            CampanhaValidator validator = new CampanhaValidator();
+
+            Campanha campanha = new Campanha
+            {
+                CampanhaID = 1,
+                AvaliadorID = 1,
+                EmpresaID = 1,
+                Descricao = "Teste",
+                InicioPeriodo = Convert.ToDateTime("26/11/2019"),
+                FimPeriodo = Convert.ToDateTime("27/11/2019"),
+                Nome = "Campanha",
+                Responsavel = " ",
+                ValorPremio = 1,
+                Status = 'A'
+            };
+
+            var resultado = validator.Validate(campanha);
+
+            Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
         public void Responsavel100Caracteres()
         {
             CampanhaValidator validator = new CampanhaValidator();
@@ -251,6 +299,30 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void NomeEspacoEmBranco()
+        {
+            CampanhaValidator validator = new CampanhaValidator();
+
+            Campanha campanha = new Campanha
+            {
+                CampanhaID = 1,
+                AvaliadorID = 1,
+                EmpresaID = 1,
+                Descricao = "Teste",
+                InicioPeriodo = Convert.ToDateTime("26/11/2019"),
+                FimPeriodo = Convert.ToDateTime("27/11/2019"),
+                Nome = " ",
+                Responsavel = "Teste",
+                ValorPremio = 1,
+                Status = 'A'
+            };
+
+            var resultado = validator.Validate(campanha);
+
+            Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
         public void Nome100Caracteres()
         {
             CampanhaValidator validator = new CampanhaValidator();
@@ -338,6 +410,30 @@ namespace Minimundo.Service.Tests
                 InicioPeriodo = Convert.ToDateTime("26/11/2019"),
                 FimPeriodo = Convert.ToDateTime("27/11/2019"),
                 Nome = "Teste",
+                Responsavel = "Teste",
+                ValorPremio = 1,
+                Status = 'A'
+            };
+
+            var resultado = validator.Validate(campanha);
+
+            Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
+        public void DescricaoEspacoEmBranco()
+        {
+            CampanhaValidator validator = new CampanhaValidator();
+
+            Campanha campanha = new Campanha
+            {
+                CampanhaID = 1,
+                AvaliadorID = 1,
+                EmpresaID = 1,
+                Descricao = " ",
+                InicioPeriodo = Convert.ToDateTime("26/11/2019"),
+                FimPeriodo = Convert.ToDateTime("27/11/2019"),
+                Nome = "Campanha",
                 Responsavel = "Teste",
                 ValorPremio = 1,
                 Status = 'A'
@@ -579,7 +675,6 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(true, resultado.IsValid);
         }
-
 
         [TestMethod]
         public void StatusF()

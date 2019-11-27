@@ -136,6 +136,30 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void CEPEspacoEmBranco()
+        {
+            EnderecoValidator validator = new EnderecoValidator();
+
+            Endereco endereco = new Endereco()
+            {
+                EnderecoID = 1,
+                UsuarioID = 1,
+                CEP = " ",
+                Estado = "MG",
+                Cidade = "Campos Claros",
+                Bairro = "Gato",
+                Rua = "Francisco dos Santos",
+                Numero = "326",
+                Complemento = "Uma casa muito engraçada, sem teto sem nada."
+            };
+
+            var resultado = validator.Validate(endereco);
+
+            Assert.AreEqual(false, resultado.IsValid);
+
+        }
+
+        [TestMethod]
         public void CEPInvalido()
         {
             EnderecoValidator validator = new EnderecoValidator();
@@ -255,6 +279,30 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void EstadoEspacoEmBranco()
+        {
+            EnderecoValidator validator = new EnderecoValidator();
+
+            Endereco endereco = new Endereco()
+            {
+                EnderecoID = 1,
+                UsuarioID = 1,
+                CEP = "38970-000",
+                Estado = " ",
+                Cidade = "Campos Claros",
+                Bairro = "Gato",
+                Rua = "Francisco dos Santos",
+                Numero = "326",
+                Complemento = "Uma casa muito engraçada, sem teto sem nada."
+            };
+
+            var resultado = validator.Validate(endereco);
+
+            Assert.AreEqual(false, resultado.IsValid);
+
+        }
+
+        [TestMethod]
         public void EstadoInvalido()
         {
             EnderecoValidator validator = new EnderecoValidator();
@@ -350,6 +398,30 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void CidadeEspacoEmBranco()
+        {
+            EnderecoValidator validator = new EnderecoValidator();
+
+            Endereco endereco = new Endereco()
+            {
+                EnderecoID = 1,
+                UsuarioID = 1,
+                CEP = "38970-000",
+                Estado = "MG",
+                Cidade = " ",
+                Bairro = "Gato",
+                Rua = "Francisco dos Santos",
+                Numero = "326",
+                Complemento = "Uma casa muito engraçada, sem teto sem nada."
+            };
+
+            var resultado = validator.Validate(endereco);
+
+            Assert.AreEqual(false, resultado.IsValid);
+
+        }
+
+        [TestMethod]
         public void CidadeLimiteCaracteres()
         {
             EnderecoValidator validator = new EnderecoValidator();
@@ -420,6 +492,30 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
+        public void BairroEspacoEmBranco()
+        {
+            EnderecoValidator validator = new EnderecoValidator();
+
+            Endereco endereco = new Endereco()
+            {
+                EnderecoID = 1,
+                UsuarioID = 1,
+                CEP = "38970-000",
+                Estado = "MG",
+                Cidade = "Campos Claros",
+                Bairro = " ",
+                Rua = "Francisco dos Santos",
+                Numero = "326",
+                Complemento = "Uma casa muito engraçada, sem teto sem nada."
+            };
+
+            var resultado = validator.Validate(endereco);
+
+            Assert.AreEqual(false, resultado.IsValid);
+
         }
 
         [TestMethod]
@@ -496,6 +592,30 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void RuaEspacoEmBranco()
+        {
+            EnderecoValidator validator = new EnderecoValidator();
+
+            Endereco endereco = new Endereco()
+            {
+                EnderecoID = 1,
+                UsuarioID = 1,
+                CEP = "38970-000",
+                Estado = "MG",
+                Cidade = "Campos Claros",
+                Bairro = "Gato",
+                Rua = " ",
+                Numero = "326",
+                Complemento = "Uma casa muito engraçada, sem teto sem nada."
+            };
+
+            var resultado = validator.Validate(endereco);
+
+            Assert.AreEqual(false, resultado.IsValid);
+
+        }
+
+        [TestMethod]
         public void RuaLimiteCaracteres()
         {
             EnderecoValidator validator = new EnderecoValidator();
@@ -566,6 +686,30 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
+        public void NumeroEspacoEmBranco()
+        {
+            EnderecoValidator validator = new EnderecoValidator();
+
+            Endereco endereco = new Endereco()
+            {
+                EnderecoID = 1,
+                UsuarioID = 1,
+                CEP = "38970-000",
+                Estado = "MG",
+                Cidade = "Campos Claros",
+                Bairro = "Gato",
+                Rua = "Francisco dos Santos",
+                Numero = " ",
+                Complemento = "Uma casa muito engraçada, sem teto sem nada."
+            };
+
+            var resultado = validator.Validate(endereco);
+
+            Assert.AreEqual(false, resultado.IsValid);
+
         }
 
         [TestMethod]

@@ -84,6 +84,23 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
+        public void NomeFantasiaEspacoEmBranco()
+        {
+            EmpresaValidator validator = new EmpresaValidator();
+            Empresa empresa = new Empresa()
+            {
+                EmpresaID = 1,
+                NomeFantasia = " ",
+                RazaoSocial = "Teste",
+                CNPJ = "91217118000121"
+            };
+
+            var resultado = validator.Validate(empresa);
+
+            Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
         public void NomeFantasiaLimiteCaracteres()
         {
             EmpresaValidator validator = new EmpresaValidator();
@@ -130,6 +147,23 @@ namespace Minimundo.Service.Tests
                 EmpresaID = 1,
                 NomeFantasia = "Teste",
                 RazaoSocial = "",
+                CNPJ = "91217118000121"
+            };
+
+            var resultado = validator.Validate(empresa);
+
+            Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
+        public void RazaoSocialEspacoEmBranco()
+        {
+            EmpresaValidator validator = new EmpresaValidator();
+            Empresa empresa = new Empresa()
+            {
+                EmpresaID = 1,
+                NomeFantasia = "Teste",
+                RazaoSocial = " ",
                 CNPJ = "91217118000121"
             };
 
@@ -186,6 +220,23 @@ namespace Minimundo.Service.Tests
                 NomeFantasia = "Teste",
                 RazaoSocial = "Teste",
                 CNPJ = ""
+            };
+
+            var resultado = validator.Validate(empresa);
+
+            Assert.AreEqual(false, resultado.IsValid);
+        }
+
+        [TestMethod]
+        public void CNPJEspacoEmBranco()
+        {
+            EmpresaValidator validator = new EmpresaValidator();
+            Empresa empresa = new Empresa()
+            {
+                EmpresaID = 1,
+                NomeFantasia = "Teste",
+                RazaoSocial = "Teste",
+                CNPJ = " "
             };
 
             var resultado = validator.Validate(empresa);

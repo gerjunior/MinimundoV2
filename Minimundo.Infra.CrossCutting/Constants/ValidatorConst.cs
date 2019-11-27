@@ -87,6 +87,9 @@ namespace Minimundo.Infra.CrossCutting
 
         public static bool Senha(string Senha)
         {
+            if (Senha == null)
+                return false;
+
             Regex rgx = new Regex(@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
 
             return rgx.IsMatch(Senha);
