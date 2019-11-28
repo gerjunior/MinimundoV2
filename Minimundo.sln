@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Infra.CrossCuttin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minimundo.Service.Tests", "Minimundo.Service.Tests\Minimundo.Service.Tests.csproj", "{BD0A2B6D-70B1-4999-97D5-A331CB8D95B2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{BA13E148-B1F6-4452-8727-37734F435904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minimundo.Api.Tests", "Minimundo.Api.Tests\Minimundo.Api.Tests.csproj", "{EF3ECFAA-6F04-4D1B-A4AE-E87CE793FBBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{BD0A2B6D-70B1-4999-97D5-A331CB8D95B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD0A2B6D-70B1-4999-97D5-A331CB8D95B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD0A2B6D-70B1-4999-97D5-A331CB8D95B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF3ECFAA-6F04-4D1B-A4AE-E87CE793FBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3ECFAA-6F04-4D1B-A4AE-E87CE793FBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3ECFAA-6F04-4D1B-A4AE-E87CE793FBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3ECFAA-6F04-4D1B-A4AE-E87CE793FBBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{85126021-A835-410E-A0A3-7D818757AC68} = {0DBF7216-3BF6-4BDA-B579-7752228BFF9C}
 		{A9F03890-4648-4383-B4DC-8E0768934F40} = {E969EE3E-4CAE-442F-8BFF-B8D626DDE04C}
 		{BD0A2B6D-70B1-4999-97D5-A331CB8D95B2} = {696B5657-9D91-4266-B847-2664F16FA435}
+		{EF3ECFAA-6F04-4D1B-A4AE-E87CE793FBBA} = {CA227084-3591-4CED-A4A6-9D45FCED0D7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C41729D4-0C46-4432-BC14-193269A40316}

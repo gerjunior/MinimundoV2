@@ -8,6 +8,22 @@ namespace Minimundo.Service.Tests
     public class AvaliadorTests
     {
 
+        #region Geral
+
+        [TestMethod]
+        public void ObjetoValido()
+        {
+            Avaliador avaliador = new Avaliador();
+            AvaliadorValidator validator = new AvaliadorValidator();
+            avaliador.AvaliadorID = 1;
+            avaliador.UsuarioID = 1;
+
+            var resultado = validator.Validate(avaliador);
+            Assert.AreEqual(true, resultado.IsValid);
+        }
+
+        #endregion Geral
+
         #region Null checks
 
         [TestMethod]
