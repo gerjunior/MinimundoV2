@@ -6,6 +6,8 @@ namespace Minimundo.Domain.Interfaces
     {
         T Select(int id);
 
+        T Select(string id);
+
         T Update(T obj);
 
         T Delete(int id);

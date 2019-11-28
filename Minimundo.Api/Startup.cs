@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -12,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using Minimundo.Domain.Entities;
 using Minimundo.Domain.Entities.Authentication;
 using Minimundo.Domain.Interfaces;
+using Minimundo.Domain.Interfaces.Controllers;
 using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
 using Minimundo.Infra.Data.Context;
@@ -36,17 +38,6 @@ namespace Minimundo.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-         //   services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-         //options.TokenValidationParameters = new TokenValidationParameters
-         //{
-         //    ValidateIssuer = false,
-         //    ValidateAudience = false,
-         //    ValidateLifetime = true,
-         //    ValidateIssuerSigningKey = true,
-         //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwt:key"])),
-         //    ClockSkew = TimeSpan.Zero
-         //});
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                  .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
 
@@ -58,6 +49,38 @@ namespace Minimundo.Api
                 Configuration.GetSection("TokenConfigurations"))
                     .Configure(tokenConfigurations);
             services.AddSingleton(tokenConfigurations);
+
+            services.AddAuthentication(authOptions =>
+            {
+                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(bearerOptions =>
+            {
+                var paramsValidation = bearerOptions.TokenValidationParameters;
+                paramsValidation.IssuerSigningKey = signingConfigurations.Key;
+                paramsValidation.ValidAudience = tokenConfigurations.Audience;
+                paramsValidation.ValidIssuer = tokenConfigurations.Issuer;
+
+                // Valida a assinatura de um token recebido
+                paramsValidation.ValidateIssuerSigningKey = true;
+
+                // Verifica se um token recebido ainda é válido
+                paramsValidation.ValidateLifetime = true;
+
+                // Tempo de tolerância para a expiração de um token (utilizado
+                // caso haja problemas de sincronismo de horário entre diferentes
+                // computadores envolvidos no processo de comunicação)
+                paramsValidation.ClockSkew = TimeSpan.Zero;
+            });
+
+            // Ativa o uso do token como forma de autorizar o acesso
+            // a recursos deste projeto
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
+            });
 
             #region Validators
             services.AddSingleton<IValidator<Avaliador>, AvaliadorValidator>();
@@ -85,6 +108,7 @@ namespace Minimundo.Api
             services.AddTransient<ISugestaoService, SugestaoService>();
             services.AddTransient<ITelefoneService, TelefoneService>();
             services.AddTransient<IUsuarioService, UsuarioService>();
+            services.AddTransient<ICredencialService, CredencialService>();
 
             #endregion Services
 
@@ -101,8 +125,11 @@ namespace Minimundo.Api
             services.AddTransient<ISugestaoRepository, SugestaoRepository>();
             services.AddTransient<ITelefoneRepository, TelefoneRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<ICredencialRepository, CredencialRepository>();
 
             #endregion Repositories
+
+            services.AddTransient(typeof(IBaseController<>), typeof(BaseController<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -117,6 +144,10 @@ namespace Minimundo.Api
                 app.UseHsts();
             }
 
+            app.UseCors(config =>
+            {
+                config.AllowAnyOrigin();
+            });
 
             app.UseHttpsRedirection();
             app.UseAuthentication();

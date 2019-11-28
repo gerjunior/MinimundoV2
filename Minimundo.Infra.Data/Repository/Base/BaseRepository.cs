@@ -43,6 +43,12 @@ namespace Minimundo.Infra.Data.Repository
             return _dbSet.Find(id);
         }
 
+        public T Select(string id)
+        {
+            return _dbSet.Find(id);
+        }
+
+
         public IEnumerable<T> SelectAll()
         {
             return _dbSet.ToList();
