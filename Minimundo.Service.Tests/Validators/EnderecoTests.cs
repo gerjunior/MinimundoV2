@@ -30,7 +30,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(true, resultado.IsValid);
-
         }
 
         #endregion Geral
@@ -156,7 +155,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
-
         }
 
         [TestMethod]
@@ -299,7 +297,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
-
         }
 
         [TestMethod]
@@ -347,6 +344,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
+
         #endregion Estado
 
         #region Cidade
@@ -418,7 +416,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
-
         }
 
         [TestMethod]
@@ -515,7 +512,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
-
         }
 
         [TestMethod]
@@ -612,7 +608,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
-
         }
 
         [TestMethod]
@@ -709,7 +704,6 @@ namespace Minimundo.Service.Tests
             var resultado = validator.Validate(endereco);
 
             Assert.AreEqual(false, resultado.IsValid);
-
         }
 
         [TestMethod]

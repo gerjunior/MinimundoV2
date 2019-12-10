@@ -4,24 +4,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Minimundo.Domain.Entities;
 using Minimundo.Domain.Entities.Authentication;
 using Minimundo.Domain.Interfaces;
-using Minimundo.Domain.Interfaces.Controllers;
 using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
-using Minimundo.Infra.Data.Context;
 using Minimundo.Infra.Data.Repository;
 using Minimundo.Service.Service;
 using Minimundo.Service.Validators;
 using System;
-using System.Text;
 
 namespace Minimundo.Api
 {
@@ -37,7 +32,6 @@ namespace Minimundo.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                  .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>());
 
@@ -81,8 +75,10 @@ namespace Minimundo.Api
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser().Build());
             });
+            //services.AddControllers();
 
             #region Validators
+
             services.AddSingleton<IValidator<Avaliador>, AvaliadorValidator>();
             services.AddSingleton<IValidator<Campanha>, CampanhaValidator>();
             services.AddSingleton<IValidator<CustoSugestao>, CustoSugestaoValidator>();
@@ -94,9 +90,10 @@ namespace Minimundo.Api
             services.AddSingleton<IValidator<Telefone>, TelefoneValidator>();
             services.AddSingleton<IValidator<Usuario>, UsuarioValidator>();
 
-            #endregion
+            #endregion Validators
 
             #region Services
+
             services.AddTransient(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddTransient<IAvaliadorService, AvaliadorService>();
             services.AddTransient<ICampanhaService, CampanhaService>();
@@ -108,7 +105,6 @@ namespace Minimundo.Api
             services.AddTransient<ISugestaoService, SugestaoService>();
             services.AddTransient<ITelefoneService, TelefoneService>();
             services.AddTransient<IUsuarioService, UsuarioService>();
-            services.AddTransient<ICredencialService, CredencialService>();
 
             #endregion Services
 
@@ -125,11 +121,8 @@ namespace Minimundo.Api
             services.AddTransient<ISugestaoRepository, SugestaoRepository>();
             services.AddTransient<ITelefoneRepository, TelefoneRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-            services.AddTransient<ICredencialRepository, CredencialRepository>();
 
             #endregion Repositories
-
-            services.AddTransient(typeof(IBaseController<>), typeof(BaseController<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -143,11 +136,6 @@ namespace Minimundo.Api
             {
                 app.UseHsts();
             }
-
-            app.UseCors(config =>
-            {
-                config.AllowAnyOrigin();
-            });
 
             app.UseHttpsRedirection();
             app.UseAuthentication();

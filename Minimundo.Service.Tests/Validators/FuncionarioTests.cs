@@ -7,8 +7,8 @@ namespace Minimundo.Service.Tests
     [TestClass]
     public class FuncionarioTests
     {
-
         #region Geral
+
         [TestMethod]
         public void ObjetoValido()
         {
@@ -45,9 +45,11 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
-        #endregion
+
+        #endregion FuncionarioID
 
         #region UsuarioID
+
         [TestMethod]
         public void UsuarioIDNulo()
         {
@@ -63,9 +65,11 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
-        #endregion
+
+        #endregion UsuarioID
 
         #region EmpresaID
+
         [TestMethod]
         public void EmpresaIDNulo()
         {
@@ -81,6 +85,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
-        #endregion
+
+        #endregion EmpresaID
     }
 }

@@ -7,7 +7,6 @@ namespace Minimundo.Service.Tests
     [TestClass]
     public class AvaliadorTests
     {
-
         #region Geral
 
         [TestMethod]

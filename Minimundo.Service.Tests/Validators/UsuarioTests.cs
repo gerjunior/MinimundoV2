@@ -8,6 +8,7 @@ namespace Minimundo.Service.Tests
     public class UsuarioTests
     {
         #region Geral
+
         [TestMethod]
         public void ObjetoValido()
         {
@@ -28,7 +29,7 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(true, result.IsValid);
         }
 
-        #endregion
+        #endregion Geral
 
         #region UsuarioID
 
@@ -51,7 +52,7 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, result.IsValid);
         }
 
-        #endregion
+        #endregion UsuarioID
 
         #region Email
 
@@ -115,7 +116,7 @@ namespace Minimundo.Service.Tests
         }
 
         [TestMethod]
-        public void EmailInvalido1 ()
+        public void EmailInvalido1()
         {
             UsuarioValidator validator = new UsuarioValidator();
 
@@ -213,7 +214,8 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, result.IsValid);
         }
-        #endregion
+
+        #endregion Email
 
         #region Senha
 
@@ -397,9 +399,10 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, result.IsValid);
         }
 
-        #endregion
+        #endregion Senha
 
         #region Nome
+
         [TestMethod]
         public void NomeNulo()
         {
@@ -604,7 +607,7 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, result.IsValid);
         }
 
-        #endregion
+        #endregion CPF
 
         #region Sexo
 
@@ -708,7 +711,6 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(true, result.IsValid);
         }
 
-        #endregion
-
+        #endregion Sexo
     }
 }

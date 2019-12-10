@@ -204,6 +204,6 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(true, resultado.IsValid);
         }
 
-        #endregion
+        #endregion Valor
     }
 }

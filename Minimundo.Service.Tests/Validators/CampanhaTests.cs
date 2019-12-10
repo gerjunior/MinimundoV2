@@ -46,9 +46,10 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, resultado.IsValid);
         }
 
-        #endregion
+        #endregion Geral
 
         #region CampanhaID
+
         [TestMethod]
         public void CampanhaIDNulo()
         {
@@ -75,6 +76,7 @@ namespace Minimundo.Service.Tests
         #endregion CampanhaID
 
         #region AvaliadorID
+
         [TestMethod]
         public void AvaliadorIDNulo()
         {
@@ -101,6 +103,7 @@ namespace Minimundo.Service.Tests
         #endregion AvaliadorID
 
         #region EmpresaID
+
         public void EmpresaIDNulo()
         {
             CampanhaValidator validator = new CampanhaValidator();
@@ -247,9 +250,10 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, resultado.IsValid);
         }
 
-        #endregion
+        #endregion Responsavel
 
         #region Nome
+
         [TestMethod]
         public void NomeNulo()
         {
@@ -369,9 +373,11 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
+
         #endregion Nome
 
         #region Descricao
+
         [TestMethod]
         public void DescicaoNulo()
         {
@@ -491,6 +497,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
+
         #endregion Descricao
 
         #region InicioPeriodo e FimPeriodo
@@ -568,6 +575,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(true, resultado.IsValid);
         }
+
         #endregion InicioPeriodo e FimPeriodo
 
         #region ValorPremio
@@ -749,6 +757,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, resultado.IsValid);
         }
-        #endregion
+
+        #endregion Status
     }
 }

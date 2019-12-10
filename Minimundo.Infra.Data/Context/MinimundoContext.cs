@@ -9,8 +9,8 @@ namespace Minimundo.Infra.Data.Context
     {
         public MinimundoContext(DbContextOptions<MinimundoContext> options) : base(options)
         {
-
         }
+
         public DbSet<Campanha> Campanha { get; set; }
         public DbSet<Avaliador> Avaliador { get; set; }
         public DbSet<CustoSugestao> CustoSugestao { get; set; }
@@ -23,7 +23,6 @@ namespace Minimundo.Infra.Data.Context
         public DbSet<Usuario> Usuario { get; set; }
 
         public DbSet<credencial> Credencial { get; set; }
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

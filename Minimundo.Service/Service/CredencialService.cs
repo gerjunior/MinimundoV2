@@ -2,7 +2,6 @@
 using Minimundo.Domain.Interfaces.Repositories;
 using Minimundo.Domain.Interfaces.Services;
 
-
 namespace Minimundo.Service.Service
 {
     public class CredencialService : BaseService<credencial>, ICredencialService

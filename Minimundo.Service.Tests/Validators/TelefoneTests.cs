@@ -8,6 +8,7 @@ namespace Minimundo.Service.Tests
     public class TelefoneTests
     {
         #region Geral
+
         [TestMethod]
         public void ObjetoValido()
         {
@@ -27,9 +28,11 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(true, response.IsValid);
         }
-        #endregion
+
+        #endregion Geral
 
         #region TelefoneID
+
         [TestMethod]
         public void TelefoneIDNulo()
         {
@@ -48,9 +51,11 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, response.IsValid);
         }
-        #endregion
+
+        #endregion TelefoneID
 
         #region UsuarioID
+
         [TestMethod]
         public void UsuarioIDNulo()
         {
@@ -69,9 +74,11 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, response.IsValid);
         }
-        #endregion
+
+        #endregion UsuarioID
 
         #region Tipo
+
         [TestMethod]
         public void TipoVazio()
         {
@@ -171,7 +178,8 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, response.IsValid);
         }
-        #endregion
+
+        #endregion Tipo
 
         #region DDI
 
@@ -255,7 +263,7 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, response.IsValid);
         }
 
-        #endregion
+        #endregion DDI
 
         #region DDD
 
@@ -339,9 +347,10 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, response.IsValid);
         }
 
-        #endregion
+        #endregion DDD
 
         #region Numero
+
         [TestMethod]
         public void NumeroNulo()
         {
@@ -421,6 +430,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, response.IsValid);
         }
-        #endregion
+
+        #endregion Numero
     }
 }

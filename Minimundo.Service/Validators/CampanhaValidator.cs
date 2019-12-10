@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
 using Minimundo.Domain.Entities;
 using Minimundo.Infra.CrossCutting;
-using System;
 
 namespace Minimundo.Service.Validators
 {

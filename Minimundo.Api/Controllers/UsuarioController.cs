@@ -1,89 +1,32 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
 using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Minimundo.Api.Controllers
 {
+    [Authorize("Bearer")]
     [Route("[controller]")]
     [ApiController]
     public class UsuarioController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IUsuarioService _service;
-        //private readonly IConfiguration _configuration;
 
-        public UsuarioController(IUsuarioService service,
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+        public UsuarioController(IUsuarioService service)
         {
             _service = service;
-            _userManager = userManager;
-            _signInManager = signInManager;
-            //_configuration = configuration;
         }
-
-        [HttpPost]
-        [Route("NovaConta")]
-        public async Task<IActionResult> Registrar(Usuario usuario)
-        {
-            var user = new IdentityUser
-            {
-                UserName = usuario.Email,
-                Email = usuario.Email,
-                EmailConfirmed = true
-            };
-
-            var result = await _userManager.CreateAsync(user, usuario.Senha);
-
-            if (!result.Succeeded) return BadRequest(result.Errors);
-
-            await _signInManager.SignInAsync(user, false);
-
-            return Ok();
-        }
-
-        //[HttpPost("Criar")]
-        //public async Task<ActionResult<UserToken>> CreateUser([FromBody] Usuario model)
-        //{
-        //    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-        //    var result = await _userManager.CreateAsync(user, model.Senha);
-        //    if (result.Succeeded)
-        //    {
-        //        return BuildToken(model);
-        //    }
-        //    else
-        //    {
-        //        return BadRequest("Usuário ou senha inválidos");
-        //    }
-        //}
-
-        //[HttpPost("Login")]
-        //public async Task<ActionResult<UserToken>> Login([FromBody] Usuario userInfo)
-        //{
-        //    var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Senha,
-        //         isPersistent: false, lockoutOnFailure: false);
-
-        //    if (result.Succeeded)
-        //    {
-        //        return BuildToken(userInfo);
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError(string.Empty, "login inválido.");
-        //        return BadRequest(ModelState);
-        //    }
-        //}
 
         #region CRUD
 
         public IActionResult ListarTodos()
         {
             IEnumerable<Usuario> obj = _service.SelectAll();
-            return Json(obj);
+            if (obj == null)
+                return NotFound();
+
+            return Ok(obj);
         }
 
         [HttpGet]
@@ -91,7 +34,10 @@ namespace Minimundo.Api.Controllers
         public IActionResult Mostrar(int id)
         {
             Usuario obj = _service.Select(id);
-            return Json(obj);
+            if (obj == null)
+                return NotFound("Objeto não encontrado.");
+
+            return Ok(obj);
         }
 
         [HttpPost]
@@ -113,34 +59,13 @@ namespace Minimundo.Api.Controllers
         public IActionResult Deletar(int id)
         {
             var obj = _service.Delete(id);
-            return Json(obj);
+
+            if (obj == null)
+                return NotFound(Json("Objeto não encontrado."));
+
+            return Ok(Json("Objeto removido com sucesso."));
         }
 
         #endregion CRUD
-
-        //private UserToken BuildToken(Usuario userInfo)
-        //{
-        //    var claims = new[]
-        //    {
-        //        new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-        //        new Claim("meuValor", "oque voce quiser"),
-        //        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        //    };
-        //    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:key"]));
-        //    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        //    // tempo de expiração do token: 1 hora
-        //    var expiration = DateTime.UtcNow.AddHours(1);
-        //    JwtSecurityToken token = new JwtSecurityToken(
-        //       issuer: null,
-        //       audience: null,
-        //       claims: claims,
-        //       expires: expiration,
-        //       signingCredentials: creds);
-        //    return new UserToken()
-        //    {
-        //        Token = new JwtSecurityTokenHandler().WriteToken(token),
-        //        Expiration = expiration
-        //    };
-        //}
     }
 }

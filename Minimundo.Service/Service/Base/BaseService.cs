@@ -33,7 +33,6 @@ namespace Minimundo.Service.Service
             return _repository.Select(id);
         }
 
-
         public IEnumerable<T> SelectAll()
         {
             return _repository.SelectAll();

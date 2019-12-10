@@ -1,10 +1,4 @@
-﻿using FluentAssertions;
-using Minimundo.Api.Tests.Controllers;
-using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
+﻿using Minimundo.Api.Tests.Controllers;
 
 namespace Minimundo.Api.Tests
 {
@@ -12,7 +6,6 @@ namespace Minimundo.Api.Tests
     {
         public AvaliadorTests() : base("Avaliador")
         {
-
         }
     }
 }

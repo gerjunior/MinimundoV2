@@ -8,6 +8,7 @@ namespace Minimundo.Service.Tests
     public class SugestaoTests
     {
         #region Geral
+
         [TestMethod]
         public void ObjetoValido()
         {
@@ -25,6 +26,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(true, response.IsValid);
         }
+
         #endregion Geral
 
         #region SugestaoID
@@ -46,7 +48,7 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, response.IsValid);
         }
 
-        #endregion
+        #endregion SugestaoID
 
         #region CampanhaID
 
@@ -67,7 +69,7 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, response.IsValid);
         }
 
-        #endregion
+        #endregion CampanhaID
 
         #region FuncionarioID
 
@@ -88,9 +90,10 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(false, response.IsValid);
         }
 
-        #endregion
+        #endregion FuncionarioID
 
         #region Descricao
+
         [TestMethod]
         public void DescricaoMenorQueDezCaracteres()
         {
@@ -250,6 +253,7 @@ namespace Minimundo.Service.Tests
 
             Assert.AreEqual(false, response.IsValid);
         }
-        #endregion
+
+        #endregion Descricao
     }
 }

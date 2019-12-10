@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using Minimundo.Api.Tests.Controllers;
-using RestSharp;
-using Xunit;
+﻿using Minimundo.Api.Tests.Controllers;
 
 namespace Minimundo.Api.Tests
 {
@@ -9,8 +6,6 @@ namespace Minimundo.Api.Tests
     {
         public CampanhaTests() : base("Campanha")
         {
-
         }
-
     }
 }

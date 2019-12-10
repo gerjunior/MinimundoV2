@@ -26,9 +26,10 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(true, resultado.IsValid);
         }
 
-        #endregion
+        #endregion Geral
 
         #region EmpresaID
+
         [TestMethod]
         public void EmpresaIDNulo()
         {
@@ -278,7 +279,6 @@ namespace Minimundo.Service.Tests
             Assert.AreEqual(true, resultado.IsValid);
         }
 
-        #endregion
-
+        #endregion CNPJ
     }
 }

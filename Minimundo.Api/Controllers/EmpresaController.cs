@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Minimundo.Domain.Entities;
-using Minimundo.Domain.Interfaces.Controllers;
 using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
 
@@ -11,55 +10,58 @@ namespace Minimundo.Api.Controllers
     public class EmpresaController : Controller
     {
         private readonly IEmpresaService _service;
-        private readonly IBaseController<Empresa> _controllerValidator;
 
-        public EmpresaController(IEmpresaService service, IBaseController<Empresa> controllerValidator)
+        public EmpresaController(IEmpresaService service)
         {
             _service = service;
-            _controllerValidator = controllerValidator;
         }
 
         #region CRUD
 
-        public Resposta ListarTodos()
+        public IActionResult ListarTodos()
         {
             IEnumerable<Empresa> obj = _service.SelectAll();
-            var validacao = _controllerValidator.Verificar(obj);
-            return validacao;
+            if (obj == null)
+                return NotFound();
+
+            return Ok(obj);
         }
 
         [HttpGet]
         [Route("{id:int}")]
-        public Resposta Mostrar(int id)
+        public IActionResult Mostrar(int id)
         {
             Empresa obj = _service.Select(id);
-            var validacao = _controllerValidator.Verificar(obj);
-            return validacao;
+            if (obj == null)
+                return NotFound("Objeto não encontrado.");
+
+            return Ok(obj);
         }
 
         [HttpPost]
-        public Resposta Inserir(Empresa obj)
+        public IActionResult Inserir(Empresa obj)
         {
             _service.Insert(obj);
-            var validacao = _controllerValidator.Verificar(obj);
-            return validacao;
+            return Json(obj);
         }
 
         [HttpPut]
-        public Resposta Atualizar(Empresa obj)
+        public IActionResult Atualizar(Empresa obj)
         {
             _service.Update(obj);
-            var validacao = _controllerValidator.Verificar(obj);
-            return validacao;
+            return Json(obj);
         }
 
         [HttpDelete]
         [Route("{id:int}")]
-        public Resposta Deletar(int id)
+        public IActionResult Deletar(int id)
         {
             var obj = _service.Delete(id);
-            var validacao = _controllerValidator.Verificar(obj);
-            return validacao;
+
+            if (obj == null)
+                return NotFound(Json("Objeto não encontrado."));
+
+            return Ok(Json("Objeto removido com sucesso."));
         }
 
         #endregion CRUD

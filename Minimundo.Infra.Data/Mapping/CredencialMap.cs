@@ -5,7 +5,7 @@ using Minimundo.Domain.Entities.Authentication;
 
 namespace Minimundo.Infra.Data.Mapping
 {
-   public class CredencialMap
+    public class CredencialMap
     {
         public void Configure(EntityTypeBuilder<credencial> builder)
         {
