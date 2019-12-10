@@ -2,6 +2,7 @@
 using Minimundo.Domain.Entities;
 using Minimundo.Domain.Interfaces.Services;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Minimundo.Api.Controllers
 {
@@ -20,8 +21,8 @@ namespace Minimundo.Api.Controllers
 
         public IActionResult ListarTodos()
         {
-            IEnumerable<Endereco> obj = _service.SelectAll();
-            if (obj == null)
+            ICollection<Endereco> obj = _service.SelectAll();
+            if (obj == null || obj.Count == 0)
                 return NotFound();
 
             return Ok(obj);
@@ -41,14 +42,14 @@ namespace Minimundo.Api.Controllers
         public IActionResult Inserir(Endereco obj)
         {
             _service.Insert(obj);
-            return Json(obj);
+            return Ok(obj);
         }
 
         [HttpPut]
         public IActionResult Atualizar(Endereco obj)
         {
             _service.Update(obj);
-            return Json(obj);
+            return Ok(obj);
         }
 
         [HttpDelete]
@@ -58,9 +59,9 @@ namespace Minimundo.Api.Controllers
             var obj = _service.Delete(id);
 
             if (obj == null)
-                return NotFound(Json("Objeto não encontrado."));
+                return NotFound("Objeto não encontrado.");
 
-            return Ok(Json("Objeto removido com sucesso."));
+            return Ok("Objeto removido com sucesso.");
         }
 
         #endregion CRUD

@@ -75,7 +75,6 @@ namespace Minimundo.Api
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser().Build());
             });
-            //services.AddControllers();
 
             #region Validators
 

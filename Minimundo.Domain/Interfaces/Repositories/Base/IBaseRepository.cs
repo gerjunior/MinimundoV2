@@ -12,6 +12,6 @@ namespace Minimundo.Domain.Interfaces
 
         T Insert(T obj);
 
-        IEnumerable<T> SelectAll();
+        ICollection<T> SelectAll();
     }
 }

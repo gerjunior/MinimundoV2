@@ -20,8 +20,8 @@ namespace Minimundo.Api.Controllers
 
         public IActionResult ListarTodos()
         {
-            IEnumerable<Empresa> obj = _service.SelectAll();
-            if (obj == null)
+            ICollection<Empresa> obj = _service.SelectAll();
+            if (obj == null || obj.Count == 0)
                 return NotFound();
 
             return Ok(obj);
@@ -42,14 +42,14 @@ namespace Minimundo.Api.Controllers
         public IActionResult Inserir(Empresa obj)
         {
             _service.Insert(obj);
-            return Json(obj);
+            return Ok(obj);
         }
 
         [HttpPut]
         public IActionResult Atualizar(Empresa obj)
         {
             _service.Update(obj);
-            return Json(obj);
+            return Ok(obj);
         }
 
         [HttpDelete]
@@ -61,7 +61,7 @@ namespace Minimundo.Api.Controllers
             if (obj == null)
                 return NotFound(Json("Objeto não encontrado."));
 
-            return Ok(Json("Objeto removido com sucesso."));
+            return Ok("Objeto removido com sucesso.");
         }
 
         #endregion CRUD

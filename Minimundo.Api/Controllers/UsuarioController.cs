@@ -22,8 +22,8 @@ namespace Minimundo.Api.Controllers
 
         public IActionResult ListarTodos()
         {
-            IEnumerable<Usuario> obj = _service.SelectAll();
-            if (obj == null)
+            ICollection<Usuario> obj = _service.SelectAll();
+            if (obj == null || obj.Count == 0)
                 return NotFound();
 
             return Ok(obj);
@@ -44,14 +44,14 @@ namespace Minimundo.Api.Controllers
         public IActionResult Inserir(Usuario obj)
         {
             _service.Insert(obj);
-            return Json(obj);
+            return Ok(obj);
         }
 
         [HttpPut]
         public IActionResult Atualizar(Usuario obj)
         {
             _service.Update(obj);
-            return Json(obj);
+            return Ok(obj);
         }
 
         [HttpDelete]
@@ -61,9 +61,9 @@ namespace Minimundo.Api.Controllers
             var obj = _service.Delete(id);
 
             if (obj == null)
-                return NotFound(Json("Objeto não encontrado."));
+                return NotFound("Objeto não encontrado.");
 
-            return Ok(Json("Objeto removido com sucesso."));
+            return Ok("Objeto removido com sucesso.");
         }
 
         #endregion CRUD

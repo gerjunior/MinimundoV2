@@ -20,9 +20,9 @@ namespace Minimundo.Api.Controllers
 
         public IActionResult ListarTodos()
         {
-            IEnumerable<Campanha> obj = _service.SelectAll();
+            ICollection<Campanha> obj = _service.SelectAll();
 
-            if (obj == null)
+            if (obj == null || obj.Count == 0)
                 return NotFound();
 
             return Ok(obj);
@@ -68,7 +68,7 @@ namespace Minimundo.Api.Controllers
             if (obj == null)
                 return NotFound(Json("Objeto não encontrado."));
 
-            return Ok(Json("Objeto removido com sucesso."));
+            return Ok("Objeto removido com sucesso.");
         }
 
         #endregion CRUD
