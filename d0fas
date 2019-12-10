@@ -1,0 +1,172 @@
+[33mcommit c52ed2d10ccbf498b4c815ea80b37d49741b8d21[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Thu Nov 28 20:58:09 2019 -0300
+
+    Adição dos negocio do vitor e parte do jwt
+
+[33mcommit d057aa479af6e0c0bea029a0b0756e476f6c5d66[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Thu Nov 28 15:35:56 2019 -0300
+
+    Início da Criação dos Testes Unitários para a camada de Aplicação
+
+[33mcommit ec3f41566c31af54d190c9c4199f4046ecac73a5[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Wed Nov 27 10:39:13 2019 -0300
+
+    Pasta Validators para a camada  Service.Tests
+
+[33mcommit c647199a576a83a547037f2e62fb0ed8e6dc7401[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Wed Nov 27 10:30:57 2019 -0300
+
+    Finalização dos Testes Unitários dos Validators da camada de serviço.
+
+[33mcommit 5606b0151f262f68a3f8485a17c9cab3ecaa4cc1[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Tue Nov 26 16:01:23 2019 -0300
+
+    Mais Validações (resta somente a de usuário)
+
+[33mcommit fde73a9278cd3f38bbded1dccab799a8df3f3a9d[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Mon Nov 25 16:09:09 2019 -0300
+
+    Inicio dos testes unitários: Validação da camada de serviço.
+    Entidades: Avaliador, Campanha, CustoSugestao, Emrpesa, Endereco.
+
+[33mcommit b5e5c892fb94b8192c409deb70bcaf3f9826168f[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Tue Nov 19 22:33:14 2019 -0300
+
+    Tentando fazer jwt
+
+[33mcommit 46819cff528116f30d82fbfed0a11f78ac18ffce[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Mon Nov 18 09:45:53 2019 -0300
+
+    Alteração do regex de validação do CEP
+
+[33mcommit 9620b1a9d6c0afa033fc902b6527addbf25d3f8a[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Sun Nov 17 18:41:59 2019 -0300
+
+    não consigo fazer essa bosta de jwt funcionar
+
+[33mcommit ffeef205dd08a89c94d674f83a0c40911d5e3fa7[m
+Merge: eae54b0 f78c91a
+Author: Gerjunior <50020444+Gerjunior@users.noreply.github.com>
+Date:   Sun Nov 17 15:57:08 2019 -0300
+
+    Merge pull request #1 from Gerjunior/Auth
+    
+    Auth
+
+[33mcommit f78c91a20e5a7bfe14aa9cb5d7fee54267c8c473[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Sun Nov 17 15:53:00 2019 -0300
+
+    Correção das rotas, correção das validações
+
+[33mcommit eae54b09648fb0a51da87eae45149b08849654ca[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Thu Nov 14 11:54:18 2019 -0300
+
+    Alteração nas validações de CPF e CNPJ
+
+[33mcommit e70fe1015a3afa45f40958288624864e3ee642f7[m
+Author: Gerjunior <50020444+Gerjunior@users.noreply.github.com>
+Date:   Wed Nov 13 16:03:20 2019 -0300
+
+    Exploring GitHub: License
+
+[33mcommit 21f2110b3478fc70e20678ff2817e04b19eb0179[m
+Author: Gerjunior <50020444+Gerjunior@users.noreply.github.com>
+Date:   Wed Nov 13 16:00:38 2019 -0300
+
+    Exploring GitHub: Código de Conduta
+
+[33mcommit 3cb63d3b74a7aa0dfd87d787bb80106f10c7affa[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Wed Nov 13 15:05:54 2019 -0300
+
+    Authentication
+
+[33mcommit 28c5f779d9aa39690f0e7ac58a1bb33d05132de9[m
+Author: abner silva <abnerluisplay2@hotmail.com>
+Date:   Wed Nov 13 08:32:23 2019 -0300
+
+    Mapeamento das classes que faltavam
+
+[33mcommit b98682ac64a09f6377798e4341de91d5abee0b25[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Tue Nov 12 20:51:13 2019 -0300
+
+    Adição da injeção de dependência
+
+[33mcommit 0200ca0868a9fb570ebd49b78e23793a3f837afe[m
+Author: abner silva <abnerluisplay2@hotmail.com>
+Date:   Tue Nov 12 12:52:41 2019 -0300
+
+    Correções e Mapeamento da classes Avaliador, Campanha, CustoSugestao, Empresa, Endereco.
+
+[33mcommit 0f5bd3093b3d267b60187753f7f273b07f33fba4[m
+Author: abner silva <abnerluisplay2@hotmail.com>
+Date:   Tue Nov 12 11:00:02 2019 -0300
+
+    Mapeamento da classe Avaliador
+
+[33mcommit c0afb09b56f92593a7c387bbab65841f7df8a84e[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Fri Nov 8 19:42:32 2019 -0300
+
+    Code Cleanup com CodeMaid
+
+[33mcommit ec6e9e537213a327149d88f9d27f087a691f0a37[m
+Merge: 46e7621 1f8673a
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Fri Nov 8 15:56:59 2019 -0300
+
+    Merge correção DER
+
+[33mcommit 46e76219cab8344d6a00520cc363fe85d814baaa[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Fri Nov 8 15:55:41 2019 -0300
+
+    Adição das validações das entidades.
+
+[33mcommit 1f8673a6e751cfac9eb9f724f666886ee4b3eb62[m
+Author: Gerjunior <50020444+Gerjunior@users.noreply.github.com>
+Date:   Fri Nov 8 15:49:58 2019 -0300
+
+    Alteração no DER
+
+[33mcommit def8a301afe2331da2f44dc47d9a710614f6c2a6[m
+Author: Geraldo <geraldojuni@hotmail.com>
+Date:   Fri Nov 8 11:38:21 2019 -0300
+
+    SonarLint code cleanup
+
+[33mcommit befecc668316cb8e7534a677196cba76bfcb4043[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Thu Nov 7 21:37:50 2019 -0300
+
+    Criação do serviço e diversas alterações.
+
+[33mcommit ce1acf5f7646a79f33d01b941af0b1d87a3ac839[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Wed Nov 6 20:20:56 2019 -0300
+
+    Aprimoramento geral.
+
+[33mcommit b0732b72c3ee277a9ea14b3daaddfaaf536d28b9[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Wed Nov 6 19:06:19 2019 -0300
+
+    Add project files.
+
+[33mcommit afc3b9937ae06920fba12e37b473b5478f030fc3[m
+Author: Geraldo Jr. S <geraldojuni@hotmail.com>
+Date:   Wed Nov 6 19:06:14 2019 -0300
+
+    Add .gitignore and .gitattributes.
