@@ -8,10 +8,6 @@ namespace Minimundo.Service.Validators
     {
         public CampanhaValidator()
         {
-            RuleFor(c => c.CampanhaID)
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} CampanhaID.")
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} CampanhaID.");
-
             RuleFor(c => c.EmpresaID)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} EmpresaID.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} EmpresaID.");

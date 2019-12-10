@@ -8,10 +8,6 @@ namespace Minimundo.Service.Validators
     {
         public UsuarioValidator()
         {
-            RuleFor(c => c.UsuarioID)
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'UsuarioID'.")
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.");
-
             RuleFor(c => c.Email)
                 .EmailAddress().WithMessage($"Email inválido.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'Email'.")

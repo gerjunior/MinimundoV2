@@ -9,10 +9,6 @@ namespace Minimundo.Service.Validators
     {
         public EnderecoValidator()
         {
-            RuleFor(c => c.EnderecoID)
-                .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'EnderecoID'.")
-                .NotNull().WithMessage($"{ValidatorConst.Nulo} EnderecoID.");
-
             RuleFor(c => c.UsuarioID)
                 .NotNull().WithMessage($"{ValidatorConst.Nulo} UsuarioID.")
                 .NotEmpty().WithMessage($"{ValidatorConst.Vazio} 'UsuarioID'.");
