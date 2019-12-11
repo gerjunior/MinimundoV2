@@ -44,7 +44,7 @@ namespace Minimundo.Api.Controllers
         public IActionResult Inserir(Campanha obj)
         {
             if (obj == null)
-                return BadRequest(Json("Objeto inválido."));
+                return BadRequest("Objeto inválido.");
 
             _service.Insert(obj);
 
@@ -66,7 +66,7 @@ namespace Minimundo.Api.Controllers
             var obj = _service.Delete(id);
 
             if (obj == null)
-                return NotFound(Json("Objeto não encontrado."));
+                return NotFound("Objeto não encontrado.");
 
             return Ok("Objeto removido com sucesso.");
         }
